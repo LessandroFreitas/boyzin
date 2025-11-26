@@ -1,4 +1,3 @@
-// app/veterinario/animais/index.tsx
 import { listarAnimais } from "@/services/animalService";
 import { useRouter } from "expo-router";
 import React, { useEffect, useState } from "react";
@@ -33,6 +32,23 @@ export default function ListaAnimaisVet() {
 
   return (
     <View style={{ flex: 1, padding: 20 }}>
+
+      {/* Botão Voltar */}
+      <Pressable
+        onPress={() => router.back()}
+        style={{
+          backgroundColor: "#00780a",
+          padding: 12,
+          borderRadius: 8,
+          marginBottom: 20,
+          width: 100
+        }}
+      >
+        <Text style={{ color: "#fff", fontSize: 16, textAlign: "center" }}>
+          Voltar
+        </Text>
+      </Pressable>
+
       <Text style={{ fontSize: 26, fontWeight: "bold", marginBottom: 20, color: "#00780a" }}>
         Animais Cadastrados
       </Text>
@@ -42,7 +58,7 @@ export default function ListaAnimaisVet() {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <Pressable
-            onPress={() => router.push(`/veterinario/animais/${item.id}` as unknown as any)}
+            onPress={() => router.push(`/veterinario/animais/${item.id}` as any)}
             style={{
               backgroundColor: "#f0f0f0",
               padding: 15,
